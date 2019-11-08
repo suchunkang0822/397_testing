@@ -1,11 +1,14 @@
 language: node_js
 node_js:
-  - "stable"
+  - 12.10
 cache:
   directories:
   - node_modules
-script:
-  - npm test
-  - npm run build
 before_install:
-  - cd material-dashboard-react
+- cd material-dashboard-react
+script:
+  - unset CI
+  - npm install
+  - npm run build
+  - npm test [--a]
+
